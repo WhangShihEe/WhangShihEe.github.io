@@ -94,7 +94,7 @@
   .post-header:hover .post-title { color: var(--accent); }
   .post-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text); transition: color .15s; flex: 1; }
   .post-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
-  .post-excerpt { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem; font-style: italic; display: none; }
+  .post-excerpt { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem; font-style: italic; display: block; }
   .post-body { display: none; padding-bottom: 1.5rem; font-size: 0.925rem; line-height: 1.8; color: #2a2520; }
   .post-body h1,.post-body h2,.post-body h3 { font-family: 'Lora', serif; margin: 1.5rem 0 0.5rem; color: var(--text); }
   .post-body p { margin-bottom: 0.9rem; }
@@ -171,7 +171,7 @@
     <button class="tab-btn active" onclick="switchTab('home',this)">Home</button>
     <button class="tab-btn" onclick="switchTab('projects',this)">All Projects</button>
     <button class="tab-btn" onclick="switchTab('writing',this)">Writing</button>
-    <button class="tab-btn" onclick="switchTab('timeline',this)">Timeline</button>
+    <button class="tab-btn disabled-tab" onclick="event.preventDefault()" title="Coming soon" style="opacity:0.5; cursor:not-allowed; color:var(--text-muted)!important;">Timeline</button>
   </div>
   <a href="cv.pdf" class="cv-btn" download>
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -185,17 +185,15 @@
 <div id="page-home" class="page active">
 
   <div class="hero">
-    <div class="avatar-placeholder">WSE</div>
+    <img src="profile_pic.png" class="avatar-placeholder" style="object-fit: cover;" alt="Whang Shih Ee">
     <div class="hero-text">
       <h1>Whang Shih Ee</h1>
       <p class="subtitle">MEng Engineering · University of Cambridge · IMDA Scholar</p>
       <p>
-        Engineer at Cambridge (Lucy Cavendish College) interested in <strong>AI safety</strong> and robotics.
-        Top 4% of cohort, studying information engineering, mathematics, and linear systems.
+        Engineer at Cambridge (Lucy Cavendish College) interested in AI safety and robotics. 
       </p>
       <p>
-        Currently researching LLM generalisation under finetuning through SPAR. Previously interned
-        at Fabrica AI, DSTA, and DSO, and served as an aircraft technician with the Republic of Singapore Air Force.
+        Currently researching LLM generalisation under finetuning through SPAR. 
       </p>
       <div class="links-row">
         <a class="pill" href="mailto:sew78@cam.ac.uk">
@@ -207,7 +205,6 @@
           LinkedIn
         </a>
         <a class="pill" href="https://github.com/WhangShihEe" target="_blank">GitHub</a>
-        <a class="pill" href="https://medium.com/@whangse123" target="_blank">Medium</a>
         <span class="pill" style="cursor:default">📍 Cambridge · Singapore</span>
       </div>
     </div>
@@ -223,7 +220,6 @@
         <h3>LLM Generalisation under Finetuning</h3>
         <div class="proj-authors">SPAR Research · Feb 2026 – Present</div>
         <p>Alignment research on LLM generalisation under finetuning, covering literature review, experimental design, and result analysis.</p>
-        <div class="tag-row"><span class="tag">AI Safety</span><span class="tag">Finetuning</span><span class="tag">LLMs</span><span class="tag warm">Ongoing</span></div>
       </div>
     </div>
 
@@ -233,7 +229,6 @@
         <h3>IDP Robot — 1st Place</h3>
         <div class="proj-authors">Integrated Design Project · Cambridge · 2026</div>
         <p>Built a robot from scratch in a 6-person team, taking first place. Led software and project management across hardware, electrical, and software sub-teams.</p>
-        <div class="tag-row"><span class="tag">Robotics</span><span class="tag">Software Lead</span><span class="tag">Project Management</span><span class="tag warm">🥇 1st Place</span></div>
       </div>
     </div>
 
@@ -243,7 +238,6 @@
         <h3>Construction Robot Mapping System</h3>
         <div class="proj-authors">Fabrica AI · Software Engineering Intern · Jul – Sep 2025</div>
         <p>Integrated a new LiDAR into a construction robot's mapping system in a Dockerised ROS 2 environment, improving range and reducing sensor redundancy.</p>
-        <div class="tag-row"><span class="tag">ROS 2</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Robotics</span></div>
       </div>
     </div>
   </section>
@@ -284,7 +278,6 @@
         <h3>LLM Generalisation under Finetuning</h3>
         <div class="proj-authors">SPAR Research · Feb 2026 – Present</div>
         <p>Alignment research on LLM generalisation under finetuning, covering literature review, experimental design, and result analysis.</p>
-        <div class="tag-row"><span class="tag">AI Safety</span><span class="tag">Finetuning</span><span class="tag">LLMs</span><span class="tag warm">Ongoing</span></div>
       </div>
     </div>
 
@@ -294,7 +287,6 @@
         <h3>CAISH Alignment Fellowship &amp; Alignment Desk</h3>
         <div class="proj-authors">Cambridge University AI Safety Hub · Oct 2024 – Dec 2025</div>
         <p>Six-week reading group and workshop series on state-of-the-art AI safety research; also produced two written posts on AI safety evaluations for the CAISH Alignment Desk.</p>
-        <div class="tag-row"><span class="tag">Alignment</span><span class="tag">Evaluations</span><span class="tag">Reading Group</span></div>
       </div>
     </div>
 
@@ -304,7 +296,6 @@
         <h3>Alignment Research Bootcamp Oxford (ARBOx)</h3>
         <div class="proj-authors">Oxford · Jan 2025</div>
         <p>Two-week technical AI safety bootcamp covering transformers, reinforcement learning, and mechanistic interpretability.</p>
-        <div class="tag-row"><span class="tag">Transformers</span><span class="tag">RL</span><span class="tag">Mechanistic Interp</span></div>
       </div>
     </div>
   </section>
@@ -318,7 +309,6 @@
         <h3>IDP Robot — 1st Place</h3>
         <div class="proj-authors">Integrated Design Project · Cambridge · 2026</div>
         <p>Built a robot from scratch in a 6-person team, taking first place. Led software and project management across hardware, electrical, and software sub-teams.</p>
-        <div class="tag-row"><span class="tag">Robotics</span><span class="tag">Software Lead</span><span class="tag">Project Management</span><span class="tag warm">🥇 1st Place</span></div>
       </div>
     </div>
 
@@ -328,7 +318,6 @@
         <h3>Construction Robot Mapping System</h3>
         <div class="proj-authors">Fabrica AI · Software Engineering Intern · Jul – Sep 2025</div>
         <p>Integrated a new LiDAR into a construction robot's mapping system in a Dockerised ROS 2 environment, improving range and reducing sensor redundancy.</p>
-        <div class="tag-row"><span class="tag">ROS 2</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Robotics</span></div>
       </div>
     </div>
 
@@ -338,7 +327,6 @@
         <h3>Drone Countermeasure Systems</h3>
         <div class="proj-authors">DSTA — Defence Science &amp; Technology Agency · Engineering Intern · Apr – Sep 2024</div>
         <p>Developed drone countermeasures, including an alternative video transmission scheme that improved frame rate by 30% and cut bandwidth usage by 75%.</p>
-        <div class="tag-row"><span class="tag">Embedded Systems</span><span class="tag">Networking</span><span class="tag">C++</span></div>
       </div>
     </div>
 
@@ -348,7 +336,6 @@
         <h3>F-16 Aircraft Maintenance</h3>
         <div class="proj-authors">Republic of Singapore Air Force · Technician · Mar 2022 – Nov 2023</div>
         <p>Serviced F-16s for daily training flights; awarded Operational Airman of the Month in June 2023 and selected for multiple overseas assignments.</p>
-        <div class="tag-row"><span class="tag">Avionics</span><span class="tag">National Service</span></div>
       </div>
     </div>
   </section>
@@ -362,8 +349,6 @@
         <h3>Novel Image Embedding Generation</h3>
         <div class="proj-authors">DSO National Laboratories · Research Intern · Jan – Mar 2024</div>
         <p>Researched and implemented a novel method for generating image embeddings from small datasets, building a documented Python codebase from scratch.</p>
-        <div class="tag-row"><span class="tag">Embeddings</span><span class="tag">Python</span><span class="tag">NumPy</span></div>
-        <div class="proj-links"><a href="https://github.com/WhangShihEe/VecRepV3/blob/master/README.md" target="_blank">GitHub</a></div>
       </div>
     </div>
 
@@ -373,7 +358,6 @@
         <h3>Aerial Vehicle Classification Model</h3>
         <div class="proj-authors">DSTA · Research Intern · Oct – Dec 2018</div>
         <p>Built a computer vision model to detect and classify vehicles in aerial imagery; one of four projects selected to present at the 2019 NUSH Research Congress.</p>
-        <div class="tag-row"><span class="tag">Computer Vision</span><span class="tag">TensorFlow</span><span class="tag">Python</span></div>
       </div>
     </div>
 
@@ -382,8 +366,7 @@
       <div class="project-meta">
         <h3>Dye-Sensitised Solar Cell Research</h3>
         <div class="proj-authors">National Institute of Education · Research Intern · Jun 2020 – Jun 2021</div>
-        <p>Investigated dye-sensitised solar cells with Prof. Tsao Hoi Nok, delivering a research paper and poster.</p>
-        <div class="tag-row"><span class="tag">Materials Science</span><span class="tag">Research</span></div>
+        <p>Investigated dye-sensitised solar cells with Prof. Tsao Hoi Nok, delivering a poster and contributing to a research paper.</p>
       </div>
     </div>
   </section>
@@ -393,22 +376,9 @@
 <!-- ══ WRITING ══ -->
 <div id="page-writing" class="page">
   <p class="writing-intro">
-    Essays on AI safety, technology, and ideas, published on
-    <a href="https://medium.com/@whangse123" target="_blank">Medium</a>.
-    Paste the full text of any post into the form below to read it here too.
+    Essays on whatever.
   </p>
   <ul class="post-list" id="post-list"></ul>
-  <div class="new-post-form">
-    <h3>+ Add a post</h3>
-    <div class="form-row"><label>Title</label><input type="text" id="np-title" placeholder="Title of your post"></div>
-    <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
-      <div><label>Date</label><input type="text" id="np-date" placeholder="Mar 2025"></div>
-      <div><label>Source</label><select id="np-source"><option value="medium">Medium</option><option value="substack">Substack</option><option value="original">Original</option></select></div>
-    </div>
-    <div class="form-row"><label>Excerpt (one line)</label><input type="text" id="np-excerpt" placeholder="Short tagline"></div>
-    <div class="form-row"><label>Body (Markdown supported)</label><textarea id="np-body" placeholder="Paste the full text of your post here in Markdown..."></textarea></div>
-    <button class="btn-primary" onclick="addPost()">Add Post</button>
-  </div>
 </div>
 
 <!-- ══ TIMELINE ══ -->
@@ -607,9 +577,10 @@ function switchTab(name, btn) {
 // Writing — Medium stubs (body empty; user pastes in full text)
 const STORE = 'wse_posts_v3';
 const SEED = [
-  { id: 3, title: "AI safety, in pragmatic terms", date: "Mar 2025", source: "medium", excerpt: "As a newcomer, 'AI safety' can seem like a pair of nice sounding words — but what is it concretely about?", body: "" },
-  { id: 2, title: "Write Down the Problem: The State of AI Safety Evaluations", date: "Feb 2025", source: "medium", excerpt: "The Feynman algorithm applied to AI safety evals.", body: "" },
-  { id: 1, title: "LLMs and owls: Replicating subliminal learning", date: "Jan 2025", source: "medium", excerpt: "An interesting paper about LLMs doing something surprisingly owl-like.", body: "" }
+  { id: 4, title: "Flashcards", subtitle: "Why memorize when you can just wing it", date: "Jan 2025", source: "substack", excerpt: "Why memorize when you can just wing it", link: "https://substack.com/home/post/p-195327804" },
+  { id: 3, title: "AI safety, in pragmatic terms", subtitle: "'AI safety' is a pair of nice sounding words — what is it concretely about?", date: "Mar 2025", source: "medium", excerpt: "As a newcomer, 'AI safety' can seem like a pair of nice sounding words — but what is it concretely about?", link: "https://medium.com/@whangse123/ai-safety-in-pragmatic-terms-ffa22c9a819a" },
+  { id: 2, title: "Write Down the Problem: The State of AI Safety Evaluations", subtitle: "The Feynman algorithm applied to AI safety evals.", date: "Feb 2025", source: "medium", excerpt: "The Feynman algorithm applied to AI safety evals.", link: "https://medium.com/@whangse123/write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4" },
+  { id: 1, title: "LLMs and owls: Replicating subliminal learning", subtitle: "Hoot hoot.", date: "Jan 2025", source: "medium", excerpt: "An interesting paper about LLMs doing something surprisingly owl-like.", link: "https://medium.com/@whangse123/llms-and-owls-replicating-subliminal-learning-43816086169b" }
 ];
 
 function getPosts() {
@@ -619,12 +590,6 @@ function getPosts() {
 function savePosts(p) { try { localStorage.setItem(STORE, JSON.stringify(p)); } catch {} }
 
 const badgeLabel = { substack: 'Substack', medium: 'Medium', original: 'Original' };
-const mediumBase = 'https://medium.com/@whangse123/';
-const mediumSlugs = {
-  3: 'ai-safety-in-pragmatic-terms-ffa22c9a819a',
-  2: 'write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4',
-  1: 'llms-and-owls-replicating-subliminal-learning-43816086169b'
-};
 
 function renderPosts() {
   const posts = getPosts();
@@ -633,29 +598,16 @@ function renderPosts() {
   posts.slice().sort((a, b) => b.id - a.id).forEach(p => {
     const li = document.createElement('li');
     li.className = 'post-item'; li.dataset.id = p.id;
-    const bodyHtml = p.body
-      ? marked.parse(p.body)
-      : `<p style="font-style:italic;color:var(--text-muted)">Full text not yet added. <a href="${mediumBase}${mediumSlugs[p.id] || ''}" target="_blank" style="color:var(--accent)">Read on Medium →</a></p>`;
+    li.style.cursor = 'pointer';
+    li.onclick = (e) => { if (p.link) window.open(p.link, '_blank'); };
     li.innerHTML = `
-      <div class="post-header" onclick="togglePost(${p.id})">
+      <div class="post-header">
         <span class="post-title">${p.title} <span class="post-source ${p.source}">${badgeLabel[p.source]}</span></span>
         <span class="post-date">${p.date}</span>
       </div>
-      <div class="post-excerpt">${p.excerpt}</div>
-      <div class="post-body">${bodyHtml}</div>`;
+      <div class="post-excerpt">${p.subtitle || p.excerpt}</div>`;
     list.appendChild(li);
   });
-}
-function togglePost(id) { document.querySelector(`.post-item[data-id="${id}"]`).classList.toggle('open'); }
-function addPost() {
-  const t = document.getElementById('np-title').value.trim();
-  const body = document.getElementById('np-body').value.trim();
-  if (!t) { alert('Title required.'); return; }
-  const posts = getPosts();
-  const id = Math.max(0, ...posts.map(p => p.id)) + 1;
-  posts.push({ id, title: t, date: document.getElementById('np-date').value.trim() || 'undated', source: document.getElementById('np-source').value, excerpt: document.getElementById('np-excerpt').value.trim(), body });
-  savePosts(posts); renderPosts();
-  ['np-title', 'np-date', 'np-excerpt', 'np-body'].forEach(k => document.getElementById(k).value = '');
 }
 renderPosts();
 </script>
