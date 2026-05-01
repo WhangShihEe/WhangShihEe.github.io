@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whang Shih Ee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --bg-card: #ffffff;
+    --text: #1a1814;
+    --text-muted: #6b6660;
+    --accent: #2c5f6e;
+    --accent-light: #e8f1f3;
+    --accent-warm: #b85c38;
+    --border: #e0dbd4;
+    --edu:  #5c3d8f;
+    --edu-dim: rgba(92,61,143,0.08);
+    --work: #b85c38;
+    --work-dim: rgba(184,92,56,0.08);
+    --proj: #2c5f6e;
+    --proj-dim: rgba(44,95,110,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.7; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(247,244,239,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+  .nav-name { font-family: 'Lora', Georgia, serif; font-size: 1.05rem; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+  .nav-tabs { display: flex; gap: 0.25rem; }
+  .tab-btn { font-family: 'Source Serif 4', serif; font-size: 0.875rem; color: var(--text-muted); background: none; border: none; cursor: pointer; padding: 0.35rem 0.75rem; border-radius: 4px; transition: color .15s, background .15s; }
+  .tab-btn:hover { color: var(--text); background: var(--border); }
+  .tab-btn.active { color: var(--accent); background: var(--accent-light); font-weight: 500; }
+  .cv-btn { font-family: 'Source Serif 4', serif; font-size: 0.8rem; background: var(--accent); color: white; border: none; padding: 0.35rem 0.9rem; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: opacity .15s; }
+  .cv-btn:hover { opacity: 0.85; }
+
+  /* Layout */
+  main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* Section label */
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  section { margin-bottom: 3rem; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; align-items: start; margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  .avatar-placeholder { width: 160px; height: 160px; border-radius: 6px; background: linear-gradient(135deg, #c8dde3 0%, #9bb8c2 100%); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--accent); font-family: 'Lora', serif; font-weight: 600; flex-shrink: 0; }
+  .hero-text h1 { font-family: 'Lora', Georgia, serif; font-size: 2rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.35rem; }
+  .hero-text .subtitle { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-style: italic; }
+  .hero-text p { font-size: 0.95rem; line-height: 1.75; color: #3a3530; margin-bottom: 0.75rem; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .pill { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; background: var(--bg-card); transition: border-color .15s, color .15s; font-family: 'Source Serif 4', serif; }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Project / experience cards */
+  .project-card { display: grid; grid-template-columns: 90px 1fr; gap: 1.25rem; align-items: start; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+  .project-card:last-child { border-bottom: none; }
+  .project-card:first-of-type { border-top: 1px solid var(--border); }
+  .project-thumb { width: 90px; height: 68px; border-radius: 4px; background: linear-gradient(135deg, #e8f1f3, #c8dde3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+  .project-meta h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
+  .project-meta .proj-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; font-style: italic; }
+  .project-meta p { font-size: 0.875rem; line-height: 1.6; color: #4a4540; }
+  .project-meta ul { font-size: 0.875rem; line-height: 1.65; color: #4a4540; padding-left: 1.1rem; margin-top: 0.35rem; }
+  .project-meta ul li { margin-bottom: 0.2rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.6rem; }
+  .tag { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; padding: 0.15rem 0.5rem; border-radius: 3px; background: var(--accent-light); color: var(--accent); letter-spacing: 0.02em; }
+  .tag.warm { background: #f5ece8; color: var(--accent-warm); }
+  .proj-links { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+  .proj-links a { font-size: 0.78rem; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); transition: border-color .15s; }
+  .proj-links a:hover { border-color: var(--accent); }
+
+  /* Awards */
+  .award-list { list-style: none; }
+  .award-item { padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 1rem; }
+  .award-item:first-child { border-top: 1px solid var(--border); }
+  .award-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
+  .award-badge.gold   { background: #fdf3dc; color: #92620a; }
+  .award-badge.silver { background: #f0f0f0; color: #555; }
+  .award-name { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .award-detail { font-size: 0.82rem; color: var(--text-muted); font-style: italic; }
+
+  /* Writing */
+  .writing-intro { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem; font-style: italic; }
+  .writing-intro a { color: var(--accent); }
+  .post-list { list-style: none; }
+  .post-item { border-bottom: 1px solid var(--border); cursor: pointer; }
+  .post-item:first-child { border-top: 1px solid var(--border); }
+  .post-header { padding: 1.1rem 0; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .post-header:hover .post-title { color: var(--accent); }
+  .post-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text); transition: color .15s; flex: 1; }
+  .post-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
+  .post-excerpt { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem; font-style: italic; display: none; }
+  .post-body { display: none; padding-bottom: 1.5rem; font-size: 0.925rem; line-height: 1.8; color: #2a2520; }
+  .post-body h1,.post-body h2,.post-body h3 { font-family: 'Lora', serif; margin: 1.5rem 0 0.5rem; color: var(--text); }
+  .post-body p { margin-bottom: 0.9rem; }
+  .post-body a { color: var(--accent); }
+  .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: var(--accent-light); padding: 0.1em 0.35em; border-radius: 3px; }
+  .post-body blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--text-muted); font-style: italic; margin: 1rem 0; }
+  .post-item.open .post-excerpt,.post-item.open .post-body { display: block; }
+  .post-source { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; padding: 0.1rem 0.45rem; border-radius: 3px; margin-left: 0.5rem; vertical-align: middle; }
+  .post-source.substack { background: #fff0eb; color: #e06c2e; }
+  .post-source.medium   { background: #f0f0f0; color: #555; }
+  .post-source.original { background: var(--accent-light); color: var(--accent); }
+  .new-post-form { margin-top: 2.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+  .new-post-form h3 { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 1rem; color: var(--text-muted); }
+  .form-row { margin-bottom: 0.75rem; }
+  .form-row label { display: block; font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem; }
+  .form-row input,.form-row textarea,.form-row select { width: 100%; border: 1px solid var(--border); border-radius: 4px; padding: 0.5rem 0.75rem; font-family: 'Source Serif 4', serif; font-size: 0.9rem; color: var(--text); background: var(--bg); outline: none; transition: border-color .15s; }
+  .form-row input:focus,.form-row textarea:focus,.form-row select:focus { border-color: var(--accent); }
+  .form-row textarea { min-height: 160px; resize: vertical; }
+  .btn-primary { font-family: 'Source Serif 4', serif; font-size: 0.875rem; background: var(--accent); color: white; border: none; padding: 0.5rem 1.25rem; border-radius: 4px; cursor: pointer; transition: opacity .15s; }
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* Timeline */
+  .tl-intro { font-size: 0.875rem; color: var(--text-muted); font-style: italic; margin-bottom: 1.75rem; }
+  .tl-legend { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .tl-legend-item { display: flex; align-items: center; gap: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; }
+  .tl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .tl-dot.edu  { background: var(--edu); }
+  .tl-dot.work { background: var(--work); }
+  .tl-dot.proj { background: var(--proj); }
+  .tl-grid { display: grid; grid-template-columns: 4.5rem 1fr 1fr 1fr; border-top: 1px solid var(--border); }
+  .tl-col-header { font-family: 'JetBrains Mono', monospace; font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.65rem 0.75rem; border-bottom: 2px solid; border-right: 1px solid var(--border); }
+  .tl-col-header:last-child { border-right: none; }
+  .tl-col-header.edu  { color: var(--edu); border-bottom-color: var(--edu); }
+  .tl-col-header.work { color: var(--work); border-bottom-color: var(--work); }
+  .tl-col-header.proj { color: var(--proj); border-bottom-color: var(--proj); }
+  .tl-col-spacer { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .tl-year-col { padding: 1.25rem 0.75rem 1.25rem 0; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: flex-end; }
+  .tl-year-col.last { border-bottom: none; }
+  .tl-year-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.06em; color: var(--text-muted); white-space: nowrap; }
+  .tl-lane-cell { padding: 1.25rem 0.875rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); position: relative; min-height: 2.5rem; }
+  .tl-lane-cell:last-child { border-right: none; }
+  .tl-lane-cell.last { border-bottom: none; }
+  .tl-lane-cell::before { content: ''; position: absolute; top: 0; bottom: 0; left: calc(0.875rem + 4px); width: 1px; opacity: 0.15; }
+  .tl-lane-cell.edu::before  { background: var(--edu); }
+  .tl-lane-cell.work::before { background: var(--work); }
+  .tl-lane-cell.proj::before { background: var(--proj); }
+  .tl-node { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 1rem; position: relative; z-index: 1; }
+  .tl-node:last-child { margin-bottom: 0; }
+  .tl-node-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 0.32rem; border: 2px solid; }
+  .tl-node-dot.edu  { background: var(--edu-dim); border-color: var(--edu); }
+  .tl-node-dot.work { background: var(--work-dim); border-color: var(--work); }
+  .tl-node-dot.proj { background: var(--proj-dim); border-color: var(--proj); }
+  .tl-node-title { font-family: 'Lora', serif; font-size: 0.875rem; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 0.12rem; }
+  .tl-node-org  { font-size: 0.78rem; font-style: italic; color: var(--text-muted); margin-bottom: 0.2rem; }
+  .tl-node-desc { font-size: 0.78rem; color: #6b6660; line-height: 1.55; }
+
+  footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); font-style: italic; }
+
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .tab-btn { padding: 0.3rem 0.5rem; font-size: 0.8rem; }
+    main { padding: 2rem 1rem 4rem; }
+    .tl-grid { grid-template-columns: 3rem 1fr 1fr 1fr; }
+    .tl-node-org,.tl-node-desc { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Whang Shih Ee</span>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('home',this)">Home</button>
+    <button class="tab-btn" onclick="switchTab('projects',this)">All Projects</button>
+    <button class="tab-btn" onclick="switchTab('writing',this)">Writing</button>
+    <button class="tab-btn" onclick="switchTab('timeline',this)">Timeline</button>
+  </div>
+  <a href="cv.pdf" class="cv-btn" download>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    CV
+  </a>
+</nav>
+
+<main>
+
+<!-- ══ HOME ══ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="avatar-placeholder">WSE</div>
+    <div class="hero-text">
+      <h1>Whang Shih Ee</h1>
+      <p class="subtitle">MEng Engineering · University of Cambridge · IMDA Scholar</p>
+      <p>
+        Engineer at Cambridge (Lucy Cavendish College) interested in <strong>AI safety</strong> and robotics.
+        Top 4% of cohort, studying information engineering, mathematics, and linear systems.
+      </p>
+      <p>
+        Currently researching LLM generalisation under finetuning through SPAR. Previously interned
+        at Fabrica AI, DSTA, and DSO, and served as an aircraft technician with the Republic of Singapore Air Force.
+      </p>
+      <div class="links-row">
+        <a class="pill" href="mailto:sew78@cam.ac.uk">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+          sew78@cam.ac.uk
+        </a>
+        <a class="pill" href="https://www.linkedin.com/in/shih-ee-whang/" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="pill" href="https://github.com/WhangShihEe" target="_blank">GitHub</a>
+        <a class="pill" href="https://medium.com/@whangse123" target="_blank">Medium</a>
+        <span class="pill" style="cursor:default">📍 Cambridge · Singapore</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Projects -->
+  <section>
+    <div class="section-label">Featured Projects</div>
+
+    <div class="project-card">
+      <div class="project-thumb">🧠</div>
+      <div class="project-meta">
+        <h3>LLM Generalisation under Finetuning</h3>
+        <div class="proj-authors">SPAR Research · Feb 2026 – Present</div>
+        <p>Alignment research on LLM generalisation under finetuning, covering literature review, experimental design, and result analysis.</p>
+        <div class="tag-row"><span class="tag">AI Safety</span><span class="tag">Finetuning</span><span class="tag">LLMs</span><span class="tag warm">Ongoing</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🤖</div>
+      <div class="project-meta">
+        <h3>IDP Robot — 1st Place</h3>
+        <div class="proj-authors">Integrated Design Project · Cambridge · 2026</div>
+        <p>Built a robot from scratch in a 6-person team, taking first place. Led software and project management across hardware, electrical, and software sub-teams.</p>
+        <div class="tag-row"><span class="tag">Robotics</span><span class="tag">Software Lead</span><span class="tag">Project Management</span><span class="tag warm">🥇 1st Place</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🏗️</div>
+      <div class="project-meta">
+        <h3>Construction Robot Mapping System</h3>
+        <div class="proj-authors">Fabrica AI · Software Engineering Intern · Jul – Sep 2025</div>
+        <p>Integrated a new LiDAR into a construction robot's mapping system in a Dockerised ROS 2 environment, improving range and reducing sensor redundancy.</p>
+        <div class="tag-row"><span class="tag">ROS 2</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Robotics</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section>
+    <div class="section-label">Awards</div>
+    <ul class="award-list">
+      <li class="award-item">
+        <span class="award-badge silver">Silver</span>
+        <div>
+          <div class="award-name">Asian Physics Olympiad 2021</div>
+          <div class="award-detail">Placed 33rd globally, 2nd in Singapore</div>
+        </div>
+      </li>
+      <li class="award-item">
+        <span class="award-badge gold">Gold</span>
+        <div>
+          <div class="award-name">Singapore Physics Olympiad 2020</div>
+          <div class="award-detail">Placed top 28 nationally</div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+</div>
+
+<!-- ══ ALL PROJECTS ══ -->
+<div id="page-projects" class="page">
+
+  <section>
+    <div class="section-label">AI Safety</div>
+
+    <div class="project-card">
+      <div class="project-thumb">🧠</div>
+      <div class="project-meta">
+        <h3>LLM Generalisation under Finetuning</h3>
+        <div class="proj-authors">SPAR Research · Feb 2026 – Present</div>
+        <p>Alignment research on LLM generalisation under finetuning, covering literature review, experimental design, and result analysis.</p>
+        <div class="tag-row"><span class="tag">AI Safety</span><span class="tag">Finetuning</span><span class="tag">LLMs</span><span class="tag warm">Ongoing</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🛡️</div>
+      <div class="project-meta">
+        <h3>CAISH Alignment Fellowship &amp; Alignment Desk</h3>
+        <div class="proj-authors">Cambridge University AI Safety Hub · Oct 2024 – Dec 2025</div>
+        <p>Six-week reading group and workshop series on state-of-the-art AI safety research; also produced two written posts on AI safety evaluations for the CAISH Alignment Desk.</p>
+        <div class="tag-row"><span class="tag">Alignment</span><span class="tag">Evaluations</span><span class="tag">Reading Group</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">⚙️</div>
+      <div class="project-meta">
+        <h3>Alignment Research Bootcamp Oxford (ARBOx)</h3>
+        <div class="proj-authors">Oxford · Jan 2025</div>
+        <p>Two-week technical AI safety bootcamp covering transformers, reinforcement learning, and mechanistic interpretability.</p>
+        <div class="tag-row"><span class="tag">Transformers</span><span class="tag">RL</span><span class="tag">Mechanistic Interp</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Robotics &amp; Engineering</div>
+
+    <div class="project-card">
+      <div class="project-thumb">🤖</div>
+      <div class="project-meta">
+        <h3>IDP Robot — 1st Place</h3>
+        <div class="proj-authors">Integrated Design Project · Cambridge · 2026</div>
+        <p>Built a robot from scratch in a 6-person team, taking first place. Led software and project management across hardware, electrical, and software sub-teams.</p>
+        <div class="tag-row"><span class="tag">Robotics</span><span class="tag">Software Lead</span><span class="tag">Project Management</span><span class="tag warm">🥇 1st Place</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🏗️</div>
+      <div class="project-meta">
+        <h3>Construction Robot Mapping System</h3>
+        <div class="proj-authors">Fabrica AI · Software Engineering Intern · Jul – Sep 2025</div>
+        <p>Integrated a new LiDAR into a construction robot's mapping system in a Dockerised ROS 2 environment, improving range and reducing sensor redundancy.</p>
+        <div class="tag-row"><span class="tag">ROS 2</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Robotics</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">📡</div>
+      <div class="project-meta">
+        <h3>Drone Countermeasure Systems</h3>
+        <div class="proj-authors">DSTA — Defence Science &amp; Technology Agency · Engineering Intern · Apr – Sep 2024</div>
+        <p>Developed drone countermeasures, including an alternative video transmission scheme that improved frame rate by 30% and cut bandwidth usage by 75%.</p>
+        <div class="tag-row"><span class="tag">Embedded Systems</span><span class="tag">Networking</span><span class="tag">C++</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">✈️</div>
+      <div class="project-meta">
+        <h3>F-16 Aircraft Maintenance</h3>
+        <div class="proj-authors">Republic of Singapore Air Force · Technician · Mar 2022 – Nov 2023</div>
+        <p>Serviced F-16s for daily training flights; awarded Operational Airman of the Month in June 2023 and selected for multiple overseas assignments.</p>
+        <div class="tag-row"><span class="tag">Avionics</span><span class="tag">National Service</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Research &amp; Science</div>
+
+    <div class="project-card">
+      <div class="project-thumb">🔬</div>
+      <div class="project-meta">
+        <h3>Novel Image Embedding Generation</h3>
+        <div class="proj-authors">DSO National Laboratories · Research Intern · Jan – Mar 2024</div>
+        <p>Researched and implemented a novel method for generating image embeddings from small datasets, building a documented Python codebase from scratch.</p>
+        <div class="tag-row"><span class="tag">Embeddings</span><span class="tag">Python</span><span class="tag">NumPy</span></div>
+        <div class="proj-links"><a href="https://github.com/WhangShihEe/VecRepV3/blob/master/README.md" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">🚗</div>
+      <div class="project-meta">
+        <h3>Aerial Vehicle Classification Model</h3>
+        <div class="proj-authors">DSTA · Research Intern · Oct – Dec 2018</div>
+        <p>Built a computer vision model to detect and classify vehicles in aerial imagery; one of four projects selected to present at the 2019 NUSH Research Congress.</p>
+        <div class="tag-row"><span class="tag">Computer Vision</span><span class="tag">TensorFlow</span><span class="tag">Python</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb">☀️</div>
+      <div class="project-meta">
+        <h3>Dye-Sensitised Solar Cell Research</h3>
+        <div class="proj-authors">National Institute of Education · Research Intern · Jun 2020 – Jun 2021</div>
+        <p>Investigated dye-sensitised solar cells with Prof. Tsao Hoi Nok, delivering a research paper and poster.</p>
+        <div class="tag-row"><span class="tag">Materials Science</span><span class="tag">Research</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══ WRITING ══ -->
+<div id="page-writing" class="page">
+  <p class="writing-intro">
+    Essays on AI safety, technology, and ideas, published on
+    <a href="https://medium.com/@whangse123" target="_blank">Medium</a>.
+    Paste the full text of any post into the form below to read it here too.
+  </p>
+  <ul class="post-list" id="post-list"></ul>
+  <div class="new-post-form">
+    <h3>+ Add a post</h3>
+    <div class="form-row"><label>Title</label><input type="text" id="np-title" placeholder="Title of your post"></div>
+    <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+      <div><label>Date</label><input type="text" id="np-date" placeholder="Mar 2025"></div>
+      <div><label>Source</label><select id="np-source"><option value="medium">Medium</option><option value="substack">Substack</option><option value="original">Original</option></select></div>
+    </div>
+    <div class="form-row"><label>Excerpt (one line)</label><input type="text" id="np-excerpt" placeholder="Short tagline"></div>
+    <div class="form-row"><label>Body (Markdown supported)</label><textarea id="np-body" placeholder="Paste the full text of your post here in Markdown..."></textarea></div>
+    <button class="btn-primary" onclick="addPost()">Add Post</button>
+  </div>
+</div>
+
+<!-- ══ TIMELINE ══ -->
+<div id="page-timeline" class="page">
+  <div class="section-label">Timeline</div>
+  <p class="tl-intro">Scan left-to-right to see what was happening at once, or follow a column to trace one thread.</p>
+  <div class="tl-legend">
+    <div class="tl-legend-item"><div class="tl-dot edu"></div>Education</div>
+    <div class="tl-legend-item"><div class="tl-dot work"></div>Work &amp; Service</div>
+    <div class="tl-legend-item"><div class="tl-dot proj"></div>Projects &amp; Research</div>
+  </div>
+
+  <div class="tl-grid">
+    <div class="tl-col-spacer"></div>
+    <div class="tl-col-header edu">Education</div>
+    <div class="tl-col-header work">Work</div>
+    <div class="tl-col-header proj">Projects</div>
+
+    <!-- 2025–present -->
+    <div class="tl-year-col"><div class="tl-year-tag">2025–26</div></div>
+    <div class="tl-lane-cell edu">
+      <div class="tl-node">
+        <div class="tl-node-dot edu"></div>
+        <div>
+          <div class="tl-node-title">Cambridge, Year 2</div>
+          <div class="tl-node-org">MEng Information Engineering</div>
+          <div class="tl-node-desc">Top 4% of cohort. Signal processing, control systems, AI/ML, mathematics.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell work">
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">Fabrica AI</div>
+          <div class="tl-node-org">Software Engineering Intern · Jul–Sep 2025</div>
+          <div class="tl-node-desc">LiDAR mapping system, ROS 2, Docker. Automated construction robots.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell proj">
+      <div class="tl-node">
+        <div class="tl-node-dot proj"></div>
+        <div>
+          <div class="tl-node-title">SPAR Research</div>
+          <div class="tl-node-org">Feb 2026 – Present</div>
+          <div class="tl-node-desc">LLM generalisation under finetuning. Literature review, experiments, result analysis.</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot proj"></div>
+        <div>
+          <div class="tl-node-title">IDP Robot — 🥇 1st Place</div>
+          <div class="tl-node-org">Integrated Design Project · 2026</div>
+          <div class="tl-node-desc">Software lead &amp; PM across 6-person team. Simulation, test suite, visualiser. Built from scratch.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="tl-year-col"><div class="tl-year-tag">2024</div></div>
+    <div class="tl-lane-cell edu">
+      <div class="tl-node">
+        <div class="tl-node-dot edu"></div>
+        <div>
+          <div class="tl-node-title">Cambridge, Year 1</div>
+          <div class="tl-node-org">MEng Information Engineering</div>
+          <div class="tl-node-desc">Engineering foundations, electronics, maths, programming.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell work">
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">DSTA Engineering Intern</div>
+          <div class="tl-node-org">Apr – Sep 2024</div>
+          <div class="tl-node-desc">Drone countermeasures. Improved video transmission (+30% fps, −75% bandwidth). Network architecture migration.</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">DSO Research Intern</div>
+          <div class="tl-node-org">Jan – Mar 2024</div>
+          <div class="tl-node-desc">Novel image embedding generation from small datasets. Python, NumPy.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell proj">
+      <div class="tl-node">
+        <div class="tl-node-dot proj"></div>
+        <div>
+          <div class="tl-node-title">CAISH Fellowship &amp; Alignment Desk</div>
+          <div class="tl-node-org">Oct 2024 – Dec 2025</div>
+          <div class="tl-node-desc">6-week alignment fellowship. 2 written posts on AI safety evaluations.</div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-node-dot proj"></div>
+        <div>
+          <div class="tl-node-title">ARBOx Bootcamp</div>
+          <div class="tl-node-org">Oxford · Jan 2025</div>
+          <div class="tl-node-desc">2-week technical bootcamp: transformers, RL, mechanistic interpretability.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022–23 -->
+    <div class="tl-year-col"><div class="tl-year-tag">2022–23</div></div>
+    <div class="tl-lane-cell edu"><!-- gap year / NS --></div>
+    <div class="tl-lane-cell work">
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">Republic of Singapore Air Force</div>
+          <div class="tl-node-org">Aircraft Technician · Mar 2022 – Nov 2023</div>
+          <div class="tl-node-desc">Serviced F-16s for daily training flights. Operational Airman of the Month (Jun 2023). Selected for multiple overseas assignments.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell proj"><!-- empty --></div>
+
+    <!-- 2020–21 -->
+    <div class="tl-year-col"><div class="tl-year-tag">2020–21</div></div>
+    <div class="tl-lane-cell edu">
+      <div class="tl-node">
+        <div class="tl-node-dot edu"></div>
+        <div>
+          <div class="tl-node-title">NUS High School</div>
+          <div class="tl-node-org">Diploma · 4.9/5.0 GPA</div>
+          <div class="tl-node-desc">Principal's List (top 5%). CS (A*), Physics (A*), Maths (A*), Chemistry (A*).</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell work">
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">NIE Research Intern</div>
+          <div class="tl-node-org">National Institute of Education · Jun 2020 – Jun 2021</div>
+          <div class="tl-node-desc">Dye-sensitised solar cell research with Prof. Tsao Hoi Nok. Research paper and poster.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell proj">
+      <div class="tl-node">
+        <div class="tl-node-dot proj"></div>
+        <div>
+          <div class="tl-node-title">Asian Physics Olympiad</div>
+          <div class="tl-node-org">2021 · Silver</div>
+          <div class="tl-node-desc">33rd globally, 2nd in Singapore.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2018–19 -->
+    <div class="tl-year-col last"><div class="tl-year-tag">2018–19</div></div>
+    <div class="tl-lane-cell edu last">
+      <div class="tl-node">
+        <div class="tl-node-dot edu"></div>
+        <div>
+          <div class="tl-node-title">NUS High School</div>
+          <div class="tl-node-org">Early years</div>
+          <div class="tl-node-desc">Singapore Junior Physics &amp; Chemistry Olympiads (Gold, 2 consecutive years).</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell work last">
+      <div class="tl-node">
+        <div class="tl-node-dot work"></div>
+        <div>
+          <div class="tl-node-title">DSTA Research Intern</div>
+          <div class="tl-node-org">Oct – Dec 2018</div>
+          <div class="tl-node-desc">Aerial vehicle classification model. Selected to present at 2019 NUSH Research Congress.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-lane-cell proj last"><!-- empty --></div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>Whang Shih Ee · Cambridge, UK · sew78@cam.ac.uk</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Writing — Medium stubs (body empty; user pastes in full text)
+const STORE = 'wse_posts_v3';
+const SEED = [
+  { id: 3, title: "AI safety, in pragmatic terms", date: "Mar 2025", source: "medium", excerpt: "As a newcomer, 'AI safety' can seem like a pair of nice sounding words — but what is it concretely about?", body: "" },
+  { id: 2, title: "Write Down the Problem: The State of AI Safety Evaluations", date: "Feb 2025", source: "medium", excerpt: "The Feynman algorithm applied to AI safety evals.", body: "" },
+  { id: 1, title: "LLMs and owls: Replicating subliminal learning", date: "Jan 2025", source: "medium", excerpt: "An interesting paper about LLMs doing something surprisingly owl-like.", body: "" }
+];
+
+function getPosts() {
+  try { const r = localStorage.getItem(STORE); return r ? JSON.parse(r) : SEED; }
+  catch { return SEED; }
+}
+function savePosts(p) { try { localStorage.setItem(STORE, JSON.stringify(p)); } catch {} }
+
+const badgeLabel = { substack: 'Substack', medium: 'Medium', original: 'Original' };
+const mediumBase = 'https://medium.com/@whangse123/';
+const mediumSlugs = {
+  3: 'ai-safety-in-pragmatic-terms-ffa22c9a819a',
+  2: 'write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4',
+  1: 'llms-and-owls-replicating-subliminal-learning-43816086169b'
+};
+
+function renderPosts() {
+  const posts = getPosts();
+  const list = document.getElementById('post-list');
+  list.innerHTML = '';
+  posts.slice().sort((a, b) => b.id - a.id).forEach(p => {
+    const li = document.createElement('li');
+    li.className = 'post-item'; li.dataset.id = p.id;
+    const bodyHtml = p.body
+      ? marked.parse(p.body)
+      : `<p style="font-style:italic;color:var(--text-muted)">Full text not yet added. <a href="${mediumBase}${mediumSlugs[p.id] || ''}" target="_blank" style="color:var(--accent)">Read on Medium →</a></p>`;
+    li.innerHTML = `
+      <div class="post-header" onclick="togglePost(${p.id})">
+        <span class="post-title">${p.title} <span class="post-source ${p.source}">${badgeLabel[p.source]}</span></span>
+        <span class="post-date">${p.date}</span>
+      </div>
+      <div class="post-excerpt">${p.excerpt}</div>
+      <div class="post-body">${bodyHtml}</div>`;
+    list.appendChild(li);
+  });
+}
+function togglePost(id) { document.querySelector(`.post-item[data-id="${id}"]`).classList.toggle('open'); }
+function addPost() {
+  const t = document.getElementById('np-title').value.trim();
+  const body = document.getElementById('np-body').value.trim();
+  if (!t) { alert('Title required.'); return; }
+  const posts = getPosts();
+  const id = Math.max(0, ...posts.map(p => p.id)) + 1;
+  posts.push({ id, title: t, date: document.getElementById('np-date').value.trim() || 'undated', source: document.getElementById('np-source').value, excerpt: document.getElementById('np-excerpt').value.trim(), body });
+  savePosts(posts); renderPosts();
+  ['np-title', 'np-date', 'np-excerpt', 'np-body'].forEach(k => document.getElementById(k).value = '');
+}
+renderPosts();
+</script>
+</body>
+</html>
