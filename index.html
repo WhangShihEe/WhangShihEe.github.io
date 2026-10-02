@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Whang Shih Ee</title>
-<meta name="description" content="Shih Ee — Cambridge engineering student from Singapore working on AI safety: empirical research, model cyber-capability evaluations, and writing on preparing for highly capable AI.">
+<meta name="description" content="Shih Ee — Cambridge engineering student from Singapore working on AI safety: empirical research, model cyber-capability evaluations, and writing on preparing for superintelligent AI.">
 <meta property="og:title" content="Whang Shih Ee">
 <meta property="og:description" content="AI safety research and writing. Cambridge engineering student from Singapore.">
 <meta property="og:image" content="https://whangshihee.github.io/profile.jpg">
@@ -28,23 +28,22 @@
 </header>
 <hr class="rule">
 
-<!-- ======================= OPENING BLURB (edit text below) ======================= -->
+<!-- ======================= OPENING BLURB ======================= -->
 <section class="hero">
   <div class="wrap">
     <img class="portrait" src="profile.jpg" alt="Shih Ee, smiling, in a scarf in front of snowy mountains" width="200" height="200">
     <div>
       <h1>Hi, I'm Shih Ee.</h1>
       <p class="lede">
-        I'm a third-year engineering student at Cambridge, from Singapore. I think Singapore — and the world at large — is not nearly prepared enough for highly capable AI. I'm now growing
+        I'm a third-year engineering student at Cambridge, from Singapore. I think Singapore and the world at large is not nearly prepared enough for superintelligent AI. Writing about this at
         <!-- TODO: replace with the blog's name and link once decided -->
-        <a class="placeholder" href="https://clemwaffle.substack.com/">[blog name]</a>
-        to do what I can to remedy this.
+        <a class="placeholder" href="https://clemwaffle.substack.com/">[blog name]</a>.
       </p>
       <p>
-        Previously I did empirical AI safety research with mentors now at Redwood Research and Anthropic, which was presented at an ICML workshop. Recently I also worked closely with the Singapore AI Safety Institute at IMDA, investigating model cyber capabilities. I sit on the committee of the <a href="https://www.caish.org/">Cambridge AI Safety Hub</a>.
+        Previously I did empirical AI safety research with mentors now at Redwood Research and Anthropic, which was presented at an ICML workshop. Recently I also worked closely with the Singapore AI Safety Institute at IMDA, investigating model cyber capabilities. Currently I'm part of the student committee of the <a href="https://www.caish.org/">Cambridge AI Safety Hub</a>.
       </p>
       <p>
-        I used to lock in more at school when it felt important. I've also messed around with robotics a bit.
+        I used to lock in more at school when it felt important. Also messed around with robots for a bit.
       </p>
       <div class="links">
         <a href="mailto:sew78@cam.ac.uk">Email</a>
@@ -57,6 +56,7 @@
   </div>
 </section>
 
+<!-- ======================= SELECTED WORK ======================= -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -66,34 +66,46 @@
     <div class="cards">
 
       <!-- ---- CARD 1: SPAR paper ---- -->
-      <!-- TODO: point this card at the paper (OpenReview / arXiv) once the link is ready -->
-      <a class="card" href="projects.html#spar">
-        <div class="tile"><img src="images/sdf.svg" alt="Blueprint-style sketch: documents feeding a small neural network whose outputs scatter across rings labelled hop 1 to hop 3"></div>
-        <h3>Generalisation from narrow finetuning</h3>
-        <p>How finetuning on a small, narrow set of documents bleeds into seemingly unrelated behaviour — and what that means for implanting beliefs in models. With mentors now at Redwood Research and Anthropic.</p>
+      <div class="card">
+        <a class="tile" href="https://github.com/WhangShihEe/Finetuning_and_generalization"><img src="images/sdf.svg" alt="Blueprint-style sketch: documents feeding a small neural network whose outputs scatter across rings labelled hop 1 to hop 3"></a>
+        <h3><a href="https://github.com/WhangShihEe/Finetuning_and_generalization">Towards Understanding LLM Generalization through Fine-tuning</a></h3>
+        <p>How finetuning on a small, narrow set of factual documents affects the actions a model takes on downstream tasks. First author on the paper, which was presented at an ICML 2026 workshop. Done as part of SPAR with mentors now at Redwood Research (Keshav Shenoy) and Anthropic (Emil Ryd).</p>
         <div class="meta"><span>SPAR</span><span>ICML 2026 workshop</span></div>
-      </a>
+        <div class="card-links">
+          <a href="https://github.com/WhangShihEe/Finetuning_and_generalization">Code →</a>
+          <!-- TODO: add paper link:  <a href="PAPER-URL">Paper →</a> -->
+        </div>
+      </div>
 
       <!-- ---- CARD 2: IMDA / Singapore AISI ---- -->
-      <a class="card" href="projects.html#imda">
-        <div class="tile"><img src="images/cyber.svg" alt="Blueprint-style sketch: a swarm of agent nodes probing a cut-away phone, with a shield under test to the right"></div>
-        <h3>Agent-swarm evaluation of Android cyber capabilities</h3>
-        <p>Designed and built a swarm-based evaluation of frontier models' cyber capabilities against Android targets, working closely with the Singapore AI Safety Institute.</p>
-        <div class="meta"><span>IMDA · Singapore AISI</span><span>2026</span></div>
-      </a>
+      <div class="card">
+        <a class="tile" href="https://github.com/WhangShihEe/swarm-root-eval"><img src="images/cyber.svg" alt="Blueprint-style sketch: a swarm of agent nodes probing a cut-away phone, with a shield under test to the right"></a>
+        <h3><a href="https://github.com/WhangShihEe/swarm-root-eval">Agent swarm evaluations of Android cyber capabilities</a></h3>
+        <p>Designed and built a swarm-based Inspect evaluation of frontier models' cyber capabilities against Android targets. Worked in IMDA's Biz-Tech group, which works closely with the Singapore AI Safety Institute. Also presented key takeaways from the HuggingFace–OpenAI and other loss-of-control incidents to decision makers.</p>
+        <div class="meta"><span>IMDA · Singapore AISI*</span><span>2026</span></div>
+        <div class="card-links">
+          <a href="https://github.com/WhangShihEe/swarm-root-eval">Code →</a>
+          <a href="https://www.linkedin.com/in/shih-ee-whang/details/recommendations/">Testimonial →</a>
+          <!-- TODO: <a href="WRITEUP-URL">Writeup →</a>  <a href="SLIDES-URL">Slides →</a> -->
+        </div>
+      </div>
 
       <!-- ---- CARD 3: IDP robot ---- -->
-      <a class="card" href="projects.html#idp">
-        <div class="tile"><img src="images/robot.svg" alt="Isometric engineering drawing of a wheeled robot with a sensor mast and front gripper, with dimensions"></div>
-        <h3>First place, Integrated Design Project</h3>
-        <p>Led software and project management for a six-person team building a competition robot from scratch; first place across the Cambridge engineering year group.</p>
+      <div class="card">
+        <a class="tile" href="https://github.com/WhangShihEe/IDP_SW"><img src="images/robot.svg" alt="Isometric engineering drawing of a wheeled robot with a sensor mast and front gripper, with dimensions"></a>
+        <h3><a href="https://github.com/WhangShihEe/IDP_SW">First place in the Cambridge Integrated Design Project</a></h3>
+        <p>Led software and project management for a six-person team building a competition robot from scratch. Won first place across the Cambridge engineering year group. Features include a simulator, test suite and visualiser.</p>
         <div class="meta"><span>Cambridge</span><span>2026</span></div>
-      </a>
+        <div class="card-links">
+          <a href="https://github.com/WhangShihEe/IDP_SW">Code →</a>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
 
+<!-- ======================= WRITING ======================= -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -102,44 +114,44 @@
     </div>
     <div class="cards">
 
-      <!-- ---- WRITING 1 ---- -->
-      <a class="card" href="https://medium.com/@whangse123/write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4">
-        <div class="tile"><img src="images/evals.svg" alt="Blueprint-style sketch of a vernier caliper closing on an undefined object marked with a question mark"></div>
-        <h3>Write Down the Problem: The State of AI Safety Evaluations</h3>
-        <p>The Feynman algorithm, applied to a field that still hasn't agreed on what it is measuring.</p>
-        <div class="meta"><span>Feb 2026</span></div>
-      </a>
-
-      <!-- ---- WRITING 2 ---- -->
-      <a class="card" href="https://clemwaffle.substack.com/p/pilled">
-        <div class="tile"><img src="images/pilled.svg" alt="Exploded engineering drawing of a capsule in section, granules spilling between the halves"></div>
-        <h3>Pilled</h3>
-        <p>Weaning off the copium. On taking ideas seriously, and being careful what you swallow.</p>
+      <!-- ---- WRITING 1: Pilled ---- -->
+      <div class="card">
+        <a class="tile" href="https://clemwaffle.substack.com/p/pilled"><img src="images/pilled.svg" alt="Exploded engineering drawing of a capsule in section, granules spilling between the halves"></a>
+        <h3><a href="https://clemwaffle.substack.com/p/pilled">Pilled</a></h3>
+        <p>Weaning off the copium.</p>
         <div class="meta"><span>Aug 2026</span></div>
-      </a>
+      </div>
 
-      <!-- ---- WRITING 3 ---- -->
-      <a class="card" href="https://clemwaffle.substack.com/p/flashcards">
-        <div class="tile"><img src="images/flashcards.svg" alt="Engineering drawing of a stack of ruled index cards with the top card lifted, and a pencil"></div>
-        <h3>Flashcards</h3>
-        <p>Why memorise when you can just wing it. What went wrong (or arguably right) with how I studied.</p>
+      <!-- ---- WRITING 2: Flashcards ---- -->
+      <div class="card">
+        <a class="tile" href="https://clemwaffle.substack.com/p/flashcards"><img src="images/flashcards.svg" alt="Engineering drawing of a stack of ruled index cards with the top card lifted, and a pencil"></a>
+        <h3><a href="https://clemwaffle.substack.com/p/flashcards">Flashcards</a></h3>
+        <p>What went wrong with how I studied.</p>
         <div class="meta"><span>Apr 2026</span></div>
-      </a>
+      </div>
+
+      <!-- ---- WRITING 3: Evals ---- -->
+      <div class="card">
+        <a class="tile" href="https://medium.com/@whangse123/write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4"><img src="images/evals.svg" alt="Blueprint-style sketch of a vernier caliper closing on an undefined object marked with a question mark"></a>
+        <h3><a href="https://medium.com/@whangse123/write-down-the-problem-the-state-of-ai-safety-evaluations-606602b852f4">Write Down the Problem: The State of AI Safety Evaluations</a></h3>
+        <p>The Feynman algorithm applied to evals.</p>
+        <div class="meta"><span>Feb 2026</span></div>
+      </div>
 
     </div>
   </div>
 </section>
 
+<!-- ======================= OTHER ACHIEVEMENTS ======================= -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
       <h2>Other achievements</h2>
     </div>
-    <!-- ---- OTHER ACHIEVEMENTS: one <li> per line; <small> is the optional second line ---- -->
+    <!-- one <li> per line; <small> is the optional second line -->
     <ul class="list">
-      <li><span class="when">2026</span><span class="what">ICML workshop paper from SPAR research, with mentors now at Redwood Research and Anthropic</span></li>
-      <li><span class="when">2026</span><span class="what">First place, Integrated Design Project robotics competition, Cambridge <small>Project and software lead for a six-person team</small></span></li>
-      <li><span class="when">2025 – 26</span><span class="what">Ranked 14th of 323 (Year 2) and 30th of 320 (Year 1), Cambridge Engineering</span></li>
+      <li><span class="when">2026</span><span class="what">Ranked 30th of 320, Year 2 Cambridge Engineering</span></li>
+      <li><span class="when">2025</span><span class="what">Ranked 14th of 323, Year 1 Cambridge Engineering</span></li>
       <li><span class="when">2021</span><span class="what">Silver, Asian Physics Olympiad <small>33rd globally, 2nd in Singapore</small></span></li>
       <li><span class="when">2020</span><span class="what">Gold, Singapore Physics Olympiad <small>Top 28 nationally</small></span></li>
     </ul>
