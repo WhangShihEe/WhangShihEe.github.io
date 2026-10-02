@@ -1,0 +1,250 @@
+ALL EDITABLE TEXT ON THE SITE
+Rewrite anything below and send the file back (or paste the bits you changed).
+Labels in [brackets] say where each piece lives; keep them so I can match things up.
+
+=== HOME PAGE (index.html) ===
+
+[Home / heading]
+Hi, I'm Shih Ee.
+
+[Home / blurb paragraph 1]
+I'm a third-year engineering student at Cambridge, from Singapore. I think Singapore and the world at large is not nearly prepared enough for superintelligent AI. Writing about this at [blog name].
+
+[Home / blurb paragraph 2]
+Previously I did empirical AI safety research with mentors now at Redwood Research and Anthropic, which was presented at an ICML workshop. Recently I also worked closely with the Singapore AI Safety Institute at IMDA, investigating model cyber capabilities. Currently I'm part of the student committee of Cambridge AI Safety Hub.
+
+[Home / blurb paragraph 3]
+I used to lock in more at school when it felt important. Also messed around with robots for a bit.
+
+[Home / Selected work / card 1 / title]
+Towards Understanding LLM generalization through fine-tuning
+
+[Home / Selected work / card 1 / blurb]
+How finetuning on a small, narrow set of factual documents affects the actions model takes on downstream tasks. First author on the paper which was presented at an ICML 2026 workshop. Project was done as part of SPAR With mentors now at Redwood Research (Keshav Shenoy) and Anthropic (Emil Ryd).
+
+[Home / Selected work / card 1 / small caps line]
+SPAR ICML 2026 workshop
+
+[Home / Selected work / card 2 / title]
+Agent swarm evaluations of Android cyber capabilities
+
+[Home / Selected work / card 2 / blurb]
+Designed and built a swarm-based Inspect evaluation of frontier models' cyber capabilities against Android targets. Worked in IMDA Biz-Tech group, which works closely with the Singapore AI Safety Institute. Also presented key takeaways from HuggingFace-OpenAI and other loss of control incidents to decision makers.
+
+[Home / Selected work / card 2 / small caps line]
+IMDA · Singapore AISI* 2026
+
+[Home / Selected work / card 3 / title]
+First place in Cambridge Integrated Design Project
+
+[Home / Selected work / card 3 / blurb]
+Led software and project management for a six person team building a competition robot from scratch. Won first place across the Cambridge engineering year group. Features include a simulator, test suite and visualiser.
+
+[Home / Selected work / card 3 / small caps line]
+Cambridge 2026
+
+[Home / Writing / card 3 / title]
+Write Down the Problem: The State of AI Safety Evaluations
+
+[Home / Writing / card 3 / blurb]
+The Feynman algorithm applied to evals.
+
+[Home / Writing / card 3 / small caps line]
+Feb 2026
+
+[Home / Writing / card 1 / title]
+Pilled
+
+[Home / Writing / card 1 / blurb]
+Weaning off the copium.
+
+[Home / Writing / card 1 / small caps line]
+Aug 2026
+
+[Home / Writing / card 2 / title]
+Flashcards
+
+[Home / Writing / card 2 / blurb]
+What went wrong with how I studied.
+
+[Home / Writing / card 2 / small caps line]
+Apr 2026
+
+
+[Home / Other achievements / item 1]
+2026 — Ranked 30th of 320, Year 2 Cambridge Engineering
+
+[Home / Other achievements / item 1]
+2025 — Ranked 14th of 323, Year 1 Cambridge Engineering
+
+[Home / Other achievements / item 4]
+2021 — Silver, Asian Physics Olympiad 33rd globally, 2nd in Singapore
+
+[Home / Other achievements / item 5]
+2020 — Gold, Singapore Physics Olympiad Top 28 nationally
+
+
+=== WRITING PAGE (writing.html) ===
+
+[WRITING PAGE / intro]
+Essays about whatever is on my mind. Email me if you find anything interesting, would love to chat :>
+
+[WRITING PAGE / Essays / entry 1]
+Aug 2026
+TITLE: Pilled
+SUBTITLE: Weaning off the copium
+BLURB: On taking ideas seriously and how to deal with inconvenient truths.
+
+[WRITING PAGE / Essays / entry 2]
+Apr 2026
+TITLE: Flashcards
+SUBTITLE: Why memorise when you can just wing it
+BLURB: How I fumbled through high school without really learning to study.
+
+[WRITING PAGE / Essays / entry 3]
+Feb 2026
+TITLE: Write Down the Problem: The State of AI Safety Evaluations
+SUBTITLE: The Feynman algorithm applied to evals
+BLURB: A short survey of the eval landscape. Notably outdated now unfortunately.
+
+[WRITING PAGE / Essays / entry 4]
+??
+TITLE: Subliminal learning medium post (help change name)
+SUBTITLE: A short replication for subliminal learning
+BLURB: Robots loving owls
+
+
+=== PROJECTS PAGE (projects.html) ===
+
+[PROJECTS PAGE / intro]
+All the stuff I've done in one place for completeness. CV has the trimmed and formal version.
+
+[PROJECTS PAGE / AI safety / entry 1]
+Feb – May 2026
+TITLE: Generalisation from narrow finetuning
+SMALL CAPS: SPAR · ICML 2026 workshop paper
+BLURB: How finetuning on a small, narrow set of factual documents affects the actions model takes on downstream tasks. First author on the paper which was presented at an ICML 2026 workshop. Project was done as part of SPAR With mentors now at Redwood Research (Keshav Shenoy) and Anthropic (Emil Ryd).
+
+BLURB: Code → Paper ->
+
+[PROJECTS PAGE / AI safety / entry 2]
+Aug – Sep 2026
+TITLE: Agent swarm evaluation of Android cyber capabilities
+SMALL CAPS: IMDA · Singapore AI Safety Institute*
+BLURB: Designed and built a swarm-based Inspect evaluation of frontier models' cyber capabilities against Android targets. Worked in IMDA Biz-Tech group, which works closely with the Singapore AI Safety Institute. Also presented key takeaways from HuggingFace-OpenAI and other loss of control incidents to decision makers.
+
+BLURB: Code → Writeup -> Testimonial -> Slides ->
+
+[PROJECTS PAGE / AI safety / entry 3]
+Jan 2025 – present
+TITLE: Cambridge AI Safety Hub
+SMALL CAPS: Committee member · Alignment Fellowship · Alignment Desk
+BLURB: Currently on the student committee. Previously completed the six-week Alignment Fellowship reading group and wrote two posts as part of the Alignment Desk writing group.
+
+BLURB: Writeup 1 -> Writeup 2 ->
+
+[PROJECTS PAGE / AI safety / entry 4]
+Jan 2026
+TITLE: Alignment Research Bootcamp Oxford (ARBOx)
+SMALL CAPS: Oxford
+BLURB: Two-week technical bootcamp working through the ARENA curriculum. Work included building GPT-2 from scratch, reinforcement learning and mechanistic interpretability.
+
+[PROJECTS PAGE / Earlier research / entry 1]
+Jan – Mar 2024
+TITLE: Image embeddings from small datasets
+SMALL CAPS: DSO National Laboratories · Research intern
+BLURB: Researched and implemented a method for generating image embeddings from small datasets, building a documented Python codebase from scratch.
+
+BLURB: Code -> Testimonial ->
+
+[PROJECTS PAGE / Earlier research / entry 2]
+Jun 2020 – Jun 2021
+TITLE: Dye-sensitised solar cells
+SMALL CAPS: National Institute of Education · Research intern
+BLURB: Investigated dye-sensitised solar cells with Prof. Tsao Hoi Nok. Delivered a poster and contributed to a published research paper.
+
+BLURB: Paper ->
+
+[PROJECTS PAGE / Earlier research / entry 3]
+Oct – Dec 2018
+TITLE: Aerial vehicle classification
+SMALL CAPS: DSTA · Research intern
+BLURB: Built a computer vision model to detect and classify vehicles in aerial imagery; one of four projects selected to present on stage at the 2019 NUS High Research Congress.
+
+BLURB: Poster and Slides ->
+
+[PROJECTS PAGE / Robotics & engineering / entry 1]
+2026
+TITLE: Integrated Design Project robot — first place
+SMALL CAPS: Cambridge Engineering · Project and software lead
+BLURB: Built a competition robot from scratch in a six-person team and took first place across the year group. Led software and project management across the hardware, electrical and software sub-teams. Features include a simulator, test suite and visualiser.
+
+BLURB: Code ->
+
+[PROJECTS PAGE / Robotics & engineering / entry 2]
+Jul – Sep 2025
+TITLE: Construction robot mapping system
+SMALL CAPS: Fabrica AI · Software engineering intern
+BLURB: Integrated a new LiDAR into a construction robot's mapping system in a Dockerised ROS 2 environment. Also created a schema to verify robot configuration changes. Worked in Python and C++.
+
+BLURB: Testimonial ->
+
+[PROJECTS PAGE / Robotics & engineering / entry 3]
+Apr – Sep 2024
+TITLE: Drone countermeasure systems
+SMALL CAPS: DSTA · Engineering intern
+BLURB: Developed a drone used for drone countermeasures. Upgraded video transmission scheme that raised frame rate by 30% and cut bandwidth by 75%. Carried out a network architecture migration and impoved the ground control applicaiton. Worked in Java and Python.
+
+BLURB: Testimonial ->
+
+[PROJECTS PAGE / Robotics & engineering / entry 4]
+Mar 2022 – Nov 2023
+TITLE: F-16 aircraft technician
+SMALL CAPS: Republic of Singapore Air Force · National service
+BLURB: Serviced F-16s for daily training flights. Choosen as the Operational Airman of the Month (June 2023). Selected for several overseas deployments.
+
+
+[PROJECTS PAGE / Other achievements / entry 1]
+2026
+TITLE: Ranked 30th of 320 (Year 2)
+SMALL CAPS: Cambridge Engineering · MEng Information Engineering
+
+BLURB: Transcript ->
+
+[PROJECTS PAGE / Other achievements / entry 2]
+2025
+TITLE: Ranked 14th of 323 (Year 1)
+SMALL CAPS: Cambridge Engineering · MEng Information Engineering
+
+BLURB: Transcript ->
+
+[PROJECTS PAGE / Other achievements / entry 2]
+2023
+TITLE: Operational Airman of the Month
+SMALL CAPS: Republic of Singapore Air Force
+
+[PROJECTS PAGE / Other achievements / entry 5]
+2021
+TITLE: NUS High School Diploma, 4.9/5.0 GPA
+SMALL CAPS: Principal's List (top 5%)
+
+BLURB: Transcript ->
+
+[PROJECTS PAGE / Other achievements / entry 2]
+2021
+TITLE: Silver, Asian Physics Olympiad
+SMALL CAPS: 33rd globally · 2nd in Singapore
+
+BLURB: Website ->
+
+[PROJECTS PAGE / Other achievements / entry 3]
+2020
+TITLE: Gold, Singapore Physics Olympiad
+SMALL CAPS: Top 28 nationally
+
+BLURB: Website ->
+
+[PROJECTS PAGE / Other achievements / entry 4]
+2018 – 19
+TITLE: Gold, Singapore Junior Physics and Chemistry Olympiads
+SMALL CAPS: Two golds in each olympiad for two consecutive years
